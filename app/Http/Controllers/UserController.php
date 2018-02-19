@@ -39,7 +39,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    { 
       $this->validate($request, [
         'name' => 'required|max:255',
         'email' => 'required|email|unique:users'

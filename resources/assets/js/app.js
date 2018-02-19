@@ -18,3 +18,10 @@ $(document).ready(function(){
     $(this).toggleClass('is-open');
   });
 });
+
+Vue.component(Buefy.Checkbox.name, Buefy.Checkbox);
+var app = new Vue({
+    el: '#app',
+data: {
+}
+});
