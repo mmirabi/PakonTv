@@ -6,22 +6,16 @@ import Buefy from 'buefy'
 
 Vue.use(Buefy);
 
-// Vue.component('example', require('./components/Example.vue'));
+ //Vue.component('example', require('./components/Example.vue'));
 
-// var app = new Vue({
-//   el: '#app',
-//   data: {}
-// });
+var app = new Vue({
+   el: '#app',
+   data: {}
+ });
 
 $(document).ready(function() {
   //  Dropdowns
   $('.dropdown').hover(function(e) {
     $(this).toggleClass('is-open')
   })
-});
-Vue.component(Buefy.Checkbox.name, Buefy.Checkbox);
-var app = new Vue({
-    el: '#app',
-data: {
-}
-});
+})

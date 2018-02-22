@@ -18,7 +18,7 @@
 
  @include('_includes.nav.main')
 
-  <div id=("app")>
+  <div id="app">
     @yield('content')
   </div>
 

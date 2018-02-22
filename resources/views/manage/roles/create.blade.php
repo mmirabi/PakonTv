@@ -25,7 +25,7 @@
                   </div>
                   <div class="field">
                     <p class="control">
-                      <label for="name" class="label">Slug (Can not be Changed)</label>
+                      <label for="name" class="label">Slug (Can not be changed)</label>
                       <input type="text" class="input" name="name" value="{{old('name')}}" id="name">
                     </p>
                   </div>
@@ -62,7 +62,7 @@
             </article>
           </div> <!-- end of .box -->
 
-          <button class="button is-primary">Create new Role</button>
+          <button class="button is-primary">Create new User</button>
         </div>
       </div>
     </form>

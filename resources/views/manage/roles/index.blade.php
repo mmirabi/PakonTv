@@ -20,7 +20,7 @@
               <div class="media-content">
                 <div class="content">
                   <h3 class="title">{{$role->display_name}}</h3>
-                  <h4 class="subtitle"><en>{{$role->name}}</en</h4>
+                  <h4 class="subtitle"><em>{{$role->name}}</em></h4>
                   <p>
                     {{$role->description}}
                   </p>
