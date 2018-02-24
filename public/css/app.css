@@ -17298,6 +17298,10 @@ a.is-muted:hover {
   height: 4.5rem;
 }
 
+.navbar-burger {
+  border: none;
+}
+
 .m-t-5 {
   margin-top: 5px !important;
 }
@@ -17682,13 +17686,40 @@ a.is-muted:hover {
   padding-right: 100px !important;
 }
 
-.side-menu {
-  position: absolute;
+#admin-side-menu {
+  position: fixed;
   top: 4rem;
+  left: -200px;
   bottom: 0;
   width: 200px;
   background-color: white;
   overflow-y: scroll;
+  -webkit-transition: left 0.3s ease-in-out;
+  transition: left 0.3s ease-in-out;
+}
+
+#admin-side-menu.is-active {
+  -webkit-transition: left 0.3s ease-in-out;
+  transition: left 0.3s ease-in-out;
+  left: 0;
+}
+
+@media screen and (min-width: 1024px) {
+  #admin-side-menu {
+    left: 0;
+  }
+}
+
+#admin-slideout-button {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#admin-slideout-button.is-active {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 
 .management-area {
