@@ -10,7 +10,7 @@ class PostController extends Controller
    */
   public function index()
   {
-
+    return view('manage.posts.index');
   }
   /**
    * Show the form for creating a new resource.
@@ -19,6 +19,7 @@ class PostController extends Controller
    */
   public function create()
   {
+    return view('manage.posts.create');
   }
   /**
    * Store a newly created resource in storage.
