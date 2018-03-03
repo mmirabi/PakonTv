@@ -1046,7 +1046,7 @@ __webpack_require__(12);
 
 window.Vue = __webpack_require__(34);
 window.Slug = __webpack_require__(36);
-Slug.defaults.mode = "rfc3986";
+Slug.defaults.mode = 'rfc3986';
 
 
 Vue.use(__WEBPACK_IMPORTED_MODULE_0_buefy___default.a);
@@ -1057,6 +1057,7 @@ Vue.component('slugWidget', __webpack_require__(39));
 //   el: '#app',
 //   data: {}
 // });
+
 __webpack_require__(48);
 
 /***/ }),
