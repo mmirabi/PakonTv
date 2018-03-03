@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                  PakonTv.com
+                  pakontv.com
                     </div>
             </div>
              <script src="{{asset('js/app.js')}}" type="text/javascript"></script>
