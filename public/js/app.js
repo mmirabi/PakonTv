@@ -30976,44 +30976,61 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   data: function data() {
     return {
-      slug: this.convertTitle(),
+      slug: this.setSlug(this.title),
       isEditing: false,
       customSlug: '',
-      wasEdited: false
+      wasEdited: false,
+      api_token: this.$root.api_token
     };
   },
   methods: {
-    convertTitle: function convertTitle() {
-      return Slug(this.title);
-    },
     editSlug: function editSlug() {
       this.customSlug = this.slug;
       this.$emit('edit', this.slug);
       this.isEditing = true;
     },
     saveSlug: function saveSlug() {
-      // run ajax to see if new slug is unique
       if (this.customSlug !== this.slug) this.wasEdited = true;
-      this.slug = Slug(this.customSlug);
+      this.setSlug(this.customSlug);
       this.$emit('save', this.slug);
       this.isEditing = false;
     },
     resetEditing: function resetEditing() {
-      this.slug = this.convertTitle();
+      this.setSlug(this.title);
       this.$emit('reset', this.slug);
       this.wasEdited = false;
       this.isEditing = false;
+    },
+    setSlug: function setSlug(newVal) {
+      var count = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+
+      var slug = Slug(newVal + (count > 0 ? '-' + count : ''));
+      var vm = this;
+      if (this.api_token && slug) {
+        axios.get('/api/posts/unique', {
+          params: {
+            api_token: vm.api_token,
+            slug: slug
+          }
+        }).then(function (response) {
+          if (response.data) {
+            vm.slug = slug;
+            vm.$emit('slug-changed', slug);
+          } else {
+            vm.setSlug(newVal, count + 1);
+          }
+        }).catch(function (error) {
+          console.log(error);
+        });
+      }
     }
   },
   watch: {
     title: _.debounce(function () {
-      if (this.wasEdited == false) this.slug = this.convertTitle();
+      if (this.wasEdited == false) this.setSlug(this.title);
       // run ajax to see if slug is unique
       // if not unique, customize the slug to make it unique
-    }, 250),
-    slug: function slug(val) {
-      this.$emit('slug-changed', this.slug);
-    }
+    }, 500)
   }
 });
 
